@@ -21,7 +21,6 @@ import static android.system.OsConstants.AF_INET6;
 import static android.system.OsConstants.AF_UNSPEC;
 import static android.system.OsConstants.IFF_LOOPBACK;
 
-import static com.android.modules.utils.build.SdkLevel.isAtLeastT;
 import static com.android.net.module.util.NetworkStackConstants.ICMPV6_ROUTER_ADVERTISEMENT;
 import static com.android.net.module.util.netlink.NetlinkConstants.IFF_LOWER_UP;
 import static com.android.net.module.util.netlink.NetlinkConstants.RTM_F_CLONED;
@@ -216,7 +215,7 @@ public class IpClientLinkObserver implements NetworkObserver {
 
     private boolean isNetlinkEventParsingEnabled() {
         return mDependencies.isFeatureEnabled(mContext, IPCLIENT_PARSE_NETLINK_EVENTS_VERSION,
-                isAtLeastT() /* default value */);
+                false /* default value */);
     }
 
     private int getSocketReceiveBufferSize() {
